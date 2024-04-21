@@ -1,37 +1,17 @@
+import aluno
+import professor
+import curso
+import disciplina
+import sala
+
+alunos = []
+professores = []
+cursos = []
+salas = []
+disciplinas = []
+
 
 #MENU
-
-def menu():
-    listaMenu()
-    while True:
-        try:
-            opcao = int(input("O que deseja fazer?"))
-        except TypeError:
-            print("digite um numero inteiro valido")
-            continue
-        if 0 > opcao > 6:
-            print("Opcao invalida")
-            continue
-        else:
-            break
-    match opcao:
-        case 0:
-            print("Até Mais!")
-            return
-        case 1:
-            ""
-        case 2:
-            ""
-        case 3:
-            ""
-        case 4:
-            ""
-        case 5:
-            ""
-        case 6:
-            ""
-
-
 
 def listaMenu():
     print(f"{"=" * 15} MENU {"=" * 15}\n"
@@ -39,15 +19,45 @@ def listaMenu():
           " 1- Alunos \n"
           " 2- Professor \n"
           " 3- Cursos \n"
-          " 4- Endereços \n"
-          " 5- Salas \n"
-          " 6- Disciplinas \n"
+          " 4- Salas \n"
+          " 5- Disciplinas \n"
           " 0- Sair \n"
           )
 
 
-def controleBancoDeDados():
-    ""
+def menu(NONE=None):
+    if NONE != None:
+        return
+    listaMenu()
+    while True:
+        try:
+            opcao = int(input("O que deseja fazer? "))
+        except ValueError:
+            print("digite um numero inteiro valido")
+            continue
+        if 0 > opcao or opcao > 6:
+            print("Opcao invalida")
+            continue
+        else:
+            break
+    match opcao:
+        case 0:
+            print("Até Mais!")
+        case 1:
+            aluno.Aluno(None).operacaoAlunos()
+            menu()
+        case 2:
+            professor.Professor(None).operacaoProfessores()
+            menu()
+        case 3:
+            curso.Curso(None).operacaoCursos()
+            menu()
+        case 4:
+            sala.Sala(None, None, None).listaSalas()
+            menu()
+        case 5:
+            disciplina.Diciplina(None, None, None, None).operacaoDisciplinas()
+            menu()
 
-
+#escolher 0(zero) da 1° vez antes de tentar utilizar e utilizar na 2° execução de menu
 menu()

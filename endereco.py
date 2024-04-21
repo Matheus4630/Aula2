@@ -1,4 +1,3 @@
-Enderecos = []
 
 class Endereco():
 
@@ -22,3 +21,16 @@ class Endereco():
         self.__complemento = complemento
         return True
 
+    def novoEndereco(self, estado, cidade, bairro, rua, numero, complemento):
+        enderecoTemp = Endereco(estado, cidade, bairro, rua, numero, complemento)
+        return enderecoTemp
+
+    def receberEndereco(self):
+        estado = input('Qual o Estado: ')
+        cidade = input('Qual a Cidade: ')
+        bairro = input('Qual o Bairro: ')
+        rua = input('Qual a Rua: ')
+        numero = input('Qual a Numero da residência: ')
+        complemento = input('Qual o Complemento: ')
+        newEndereco = self.novoEndereco(estado, cidade, bairro, rua, numero, complemento)
+        return newEndereco
